@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct clg
+{
+    int id;
+    char name[20];
+    int year;
+    float cgpa;
+};
+int main()
+{
+    struct clg stud[100];
+    int i;
+    for(i=1;i<=4;i++)
+    {
+        printf("Enter the detials of student %d:",i);
+
+    printf("\nEnter student id: ");
+    scanf("%d",&stud[i].id);
+    printf("Enter studnets name: ");
+    fflush(stdin); 
+    fgets(stud[i].name,20,stdin);
+    printf("enter student's year: ");
+    scanf("%d",&stud[i].year);
+    printf("Enter the student's cgpa: ");
+    scanf("%f",&stud[i].cgpa);
+    printf("\n");
+     
+
+    }
+     for(i=1;i<=4;i++)
+    {
+        printf("detials of student %d:",i);
+    printf("\nstudent id :%d ",stud[i].id);
+    printf("\nstudnets name: %s ",stud[i].name);
+    printf("student's year: %d ",stud[i].year);
+    printf("\nstudent's cgpa :%f ",stud[i].cgpa);
+    printf("\n\n");
+            
+
+
+    }
+
+}
