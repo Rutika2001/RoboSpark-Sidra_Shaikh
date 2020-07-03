@@ -1,0 +1,105 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+struct node
+{
+    int data; 
+    struct node *right;
+    struct node *left; 
+};
+// searching
+struct node* search(struct node *root, int x)
+{   
+    if(root==NULL || root->data==x)
+        return root;
+    else if(x>root->data) // search the right subtree
+        return search(root->right, x);
+    else // search the left subtree
+        return search(root->left,x);
+}
+//create a node
+struct node* new_node(int x)
+{
+    struct node *new;
+    new= malloc(sizeof(struct node));
+    new ->data = x;
+    new->left = NULL;
+    new->right = NULL;
+
+    return new;
+}
+
+struct node* insert(struct node *root, int x)
+{
+    //inserting
+    if(root==NULL)
+        return new_node(x);
+    else if(x>root->data) 
+        root->right = insert(root->right, x);
+    else 
+        root->left = insert(root->left,x);
+    return root;
+}
+
+//postorder
+void postorder(struct node *root)
+{   
+    if(root!=NULL) 
+    {
+        postorder(root->left); // left 
+        postorder(root->right);// right 
+        printf(" %d ", root->data); // data
+    }
+}
+
+int main()
+{
+    struct node *root;
+    int arr[100];
+
+    int count;
+    //total num of elements
+    printf("\nEnter the total number of elements : ");
+    scanf("%d", &count);
+
+
+    printf("\nEnter the elements in a tree : \n");
+    for (int i = 0; i < count; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    //creating nodes
+    for (int j = 0; j < count; j++)
+    {
+        if (j==0)
+        {   
+            root = new_node(arr[j]);
+        }
+        else
+        {
+            insert(root, arr[j]);
+        }   
+    }
+
+    printf("postorder : ");
+    postorder(root);
+    printf("\n");
+
+    int a;
+    printf("Enter a number to search in bst : ");
+    scanf("%d", &a);
+
+    
+    if (search(root, a)==0)
+    {
+        printf("%d is NOT present in the tree", a);
+    }
+    else
+    {
+        printf("number %d is present in the tree", a);
+    }
+
+    return 0;
+} 

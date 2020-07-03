@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<stdlib.h>
+// student structure
+struct stud
+{
+    char name[20];
+    int roll;
+};
+
+typedef struct Queue
+{
+    int arr[20];
+    int front,rear;
+}Queue;
+
+void initialize(Queue* q)
+{
+    q->rear=0;
+    q->front=0;
+}
+//enqueue function
+int enqueue(Queue* q, int roll)
+{
+    
+    q->arr[q->rear++]=roll;   
+}
+//check empty queue or not
+int isEmpty(Queue* q)
+{
+    return q->front==q->rear;
+}
+void print(Queue* q)
+{
+    if(isEmpty(q))
+    {
+        printf("queue is empty");
+        return;
+    }
+    
+    for (int j=q->front;j<q->rear;j++)
+    {
+       // if((q->arr[j]%2)==0){
+        printf("enqueued even roll no :%d\n",q->arr[j]);
+    }
+    }
+   
+
+
+int main()
+{
+    Queue* q=(Queue*)malloc(sizeof(Queue));
+    initialize(q);
+    struct stud student[100];
+    int n;
+    printf("Enter no.of students:");
+    scanf("%d",&n);
+    fflush(stdin);
+    for(int i=1;i<n;i++)
+    {
+
+    printf("Enter Name :");
+    fgets(student[i].name,20,stdin);
+    fflush(stdin);
+    printf("Enter Roll no:");
+    scanf("%d",&student[i].roll);
+    
+    fflush(stdin);
+    
+}
+//students with even roll no.
+    for(int i=1;i<n;i++){
+        if(student[i].roll%2==0)
+        {enqueue(q ,student[i].roll);
+        printf("\nStuent name with even roll no. :%s",student[i].name);
+        print(q);
+        }
+          
+}
+}
+   
