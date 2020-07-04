@@ -1,0 +1,92 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+//creating class
+class student{
+private:
+    string name;
+    int roll;
+    int year;
+    int cgpa;
+    int *arr=new int [5];         
+    
+public:
+
+    student()
+    {
+        name="No_name";
+        roll=0;
+        year=0;
+        cgpa=10;
+        
+   }
+    student(string n,int r,int y)
+    {
+        name=n;
+        roll=r;
+        year=y;
+        
+    }
+//getting inputs 
+    void getInput()
+    {
+        cout<<"enter details:\n";
+        cout<<"Enter name: "<<endl;
+        cin>>name;
+        cout<<"Enter roll: "<<endl;
+        cin>>roll;
+        cout<<"Enter year: "<<endl;
+        cin>>year;
+        int temp;
+        int cnt;
+        cout<<"enter five subject marks:";
+        for (cnt=0;cnt<5;cnt++)
+        {
+          cin>> temp;
+          arr[cnt]=temp;
+        }
+        
+    }
+    //function for calculating cgpa
+    int CGPA()
+    {
+        
+        return(total()/5);
+    }
+    
+    //function to display outputs
+    void display()
+    {
+        cout<<"name of student: "<<name<<endl;
+        cout<<"Roll no : "<<roll<<endl;
+        cout<<"Year: "<<year<<endl;
+        cout<<"total marks:"<<total()<<endl;
+        CGPA();
+        cout<<"cgpa(average) is :"<<CGPA();
+        delete[]arr;      //release memory allocated
+        
+    }
+    int total()
+    {
+        int total=0;
+        for(int cnt=0;cnt<5;cnt++)
+       {
+           
+           total=total+arr[cnt];
+       }
+       return total;
+       
+    }
+
+};
+
+int main()
+{
+    student s;
+    s.getInput();
+    s.total();
+    s.display();
+    
+    
+}
