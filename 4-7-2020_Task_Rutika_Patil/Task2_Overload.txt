@@ -1,0 +1,79 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+// student class
+class student{
+public:
+   string name;
+   int roll;
+   int id;
+   int x;
+   
+//function to show details
+void showDetails()
+{
+  cout<<"\nDetails of student:\n";
+  cout<<"Name of student: "<<name<<endl;
+  cout<<"Roll no : "<<roll<<endl;
+  cout<<"Id: "<<id<<endl;
+}
+
+//function to show rank
+void showRank()
+{
+  cout<<"Rank:"<<x<<endl;
+}
+//function to details   
+void show(student s)
+  {
+    showDetails();
+    cout<<"No rank";
+  }
+//function accepts student and integer
+  void show(student s,int x)
+  {
+    showDetails();
+    showRank();
+    
+  }   
+
+  //function accepts int only
+  void show(int x)
+  {
+    showRank();
+  }
+};
+
+int main()
+{
+  student s;    //object
+  int choice,x;
+  cout<<"enter name of student: ";
+  cin>>s.name;
+  cout<<"enter roll: ";
+  cin>>s.roll;
+  cout<<"Enter id: ";
+  cin>>s.id;
+  cout<<"What you want to pass\n 1.Only int \n 2.student\n 3.student and int"<<endl;
+  cout<<" Enter choice: ";
+  cin>>choice;
+  if (choice==1)
+  {
+    cout<<"Enter int to be passed: ";
+    cin>>s.x;
+    s.show(s.x);
+  }
+  if(choice==2)
+  {
+    s.show( s);
+  }
+  if (choice==3)
+  {
+    cout<<"Enter int to be passed: ";
+    cin>>s.x;
+    s.show(s,s.x);
+  }
+
+ 
+}
