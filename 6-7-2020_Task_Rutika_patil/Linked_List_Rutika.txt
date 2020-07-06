@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+   int data;
+   struct node* next; 
+};
+
+void display(struct node *head1){
+ struct node *temp=head1;
+   while (temp->next!=NULL)
+   {
+
+    printf("%d->",temp->data);
+    temp=temp->next;
+
+   }
+   printf("%d -> NULL\n ",temp->data);
+
+}
+void del(struct node *b){
+ struct node *temp1;
+ temp1=b->next;
+ b->next=temp1->next;
+ free(temp1);
+}
+int main()
+{
+        
+
+    struct node* head=(struct node*) malloc(sizeof(struct node));
+    head->data=100;
+    head->next=NULL;
+
+    struct node* second=(struct node*) malloc(sizeof(struct node));
+    second->data=110;
+    second->next=NULL;
+    head->next=second;
+
+    struct node* third=(struct node*)malloc(sizeof(struct node));
+    third->data=200;
+    third->next=NULL;
+    second->next=third;
+
+    struct node* four=(struct node*)malloc(sizeof(struct node));
+    four->data=300;
+    four->next=NULL;
+    third->next=four;
+
+    struct node *temp=head;
+    //displaying created list
+    printf("Created linked list:\n");
+    display(head);
+  
+
+    //insertion at first
+    struct node* s=(struct node*)malloc(sizeof(struct node));
+    s->data=50;
+    s->next=head;
+    head=s;
+    printf("Linked list after insertion at first:\n");
+   display(head);
+
+
+    //insertion at last
+    struct node* p=(struct node*)malloc(sizeof(struct node));
+    p->data=500;
+    p->next=NULL;
+    four->next=p;
+    printf("Linked list after insertion at last:\n");
+    display(head);
+ 
+ 
+   struct node*m=(struct node*)malloc(sizeof(struct node));
+   m->data=70;
+   m->next=second->next;
+   second->next=m;
+   printf("Linked list after insertion at middle:\n");
+   display(head);
+
+//deletion of node after third node
+   del(second);
+   printf("Linked list after deleting node:\n");
+   display(head);
+
+
+}
