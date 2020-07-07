@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+class String{
+
+   string name;
+
+public:
+   String()
+   {
+       name="no name";
+   } 
+   String(string s)
+   {
+       name=s;
+   }
+   String operator+(string str);
+   String operator*(int n);
+   void display();
+   friend istream& operator>>(istream& cin,String &s);
+   friend ostream& operator<<(ostream& cout,String &s);
+
+};
+
+ostream& operator<<(ostream& cout,String &s)
+{
+    cout<<"enterd string: ";
+    cout<<s.name<<endl;
+}
+
+istream& operator>>(istream& cin,String &s)
+{
+    cout<<"Enter string:";
+    cin>>s.name;
+    return cin;
+}
+String String::operator+(string str)
+{
+    String temp=*this;
+    string s=temp.name;
+    temp.name+=str;
+    return temp;
+}
+
+String String ::operator*(int n)
+{
+    String temp=*this;
+    string s=temp.name;
+    for(int i=1;i<n;i++)
+    {
+        temp.name=temp.name+s;
+    }
+    return temp;
+}
+
+void String::display()
+{
+    cout<<name<<endl;
+}
+int main()
+{
+    String s("college");
+    String s1("School");
+    s1.display();
+    s=s+"Life";   //concatenation of string
+    s.display();
+    s1=s1*3;   //Multiplying string
+    s1.display();
+    cin>>s1;
+    s1=s1*4;  //Multiplying the input string
+    cout<<s1;
+
+   
+}
