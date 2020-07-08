@@ -1,0 +1,127 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class personal{
+    protected:
+       string name_surnmae,address,birth_date;
+       
+    public:
+    personal()
+    {
+        name_surnmae="name of applicant";
+        address="Address";
+        birth_date="date of birth";
+    }   
+    void personal_input()
+    {
+        cout<<"Enter your professional details: \n";
+        cout<<"Enter name and surname : ";
+        getline(cin,name_surnmae);
+        cout<<"Enter address : ";
+        getline(cin,address);
+        cout<<"Enter Birth date : ";
+        getline(cin,birth_date);
+    }
+    void personal_display()
+    {
+       cout<<"Personal Information :\n ";
+       cout<<"Name and surname : "<<name_surnmae<<endl;
+       cout<<"Addresss : "<<address<<endl;
+       cout<<"Birth date : "<<birth_date<<endl;
+    }
+};
+
+class professional{
+    protected:
+       string organisation_name,job_profile,project;
+    public:
+    professional()
+    {
+        organisation_name="name of organisation";
+        job_profile="post of job";
+        project="Name of projets";
+    }
+    void prof_input()
+    {
+        cout<<"Enter your professional details: \n";
+        cout<<"Enter organisation name : ";
+        getline(cin,organisation_name);
+        cout<<"Enter job details : ";
+        getline(cin,job_profile);
+        cout<<"Enter project details : ";
+        getline(cin,project);
+    }  
+    void prof_display()
+    {
+        cout<<"Professional details : "<<endl;
+        cout<<"Name of organisation : "<<organisation_name<<endl;
+        cout<<"job profile : "<<job_profile<<endl;
+        cout<<"Project details : "<<project<<endl;
+    }
+    
+   
+};
+class academic{
+    protected:
+       int pass_year;
+       float cgpa;
+       string clg_name,branch;
+    public:
+       academic()
+       {
+           pass_year=2020;
+           cgpa=10;
+           clg_name="vit";
+           branch="Comp";
+       }   
+    void academic_input()
+    {
+        cout<<"Enter passing year : ";
+        cin>>pass_year;
+        cout<<"Enter cgpa : ";
+        cin>>cgpa;
+        cout<<"Enter clg name : ";
+        cin>>clg_name;
+        cout<<"Enter branch : ";
+        cin>>branch;
+    }
+    void academic_display()
+    {
+        cout<<"Academic details : "<<endl;
+        cout<<"Passing year : "<<pass_year;
+        cout<<"CGPA : "<<cgpa<<endl;
+        cout<<"College name : "<<clg_name<<endl;
+        cout<<"Branch : "<<branch<<endl;
+    }
+
+    
+};
+
+class biodata:public academic,public personal,public professional{
+    public:
+      void data(){
+        this->personal_input();  
+        this-> prof_input();
+        this->academic_input();
+      }
+      
+      void display(){
+          cout<<"=== BIO-DATA === : "<<endl;
+          this->personal_display();
+          this->prof_display();
+          this->academic_display();
+
+      }
+        
+       
+};
+
+
+
+int main()
+{
+  biodata b;
+  b.data();
+  b.display();
+  
+}
