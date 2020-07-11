@@ -1,0 +1,59 @@
+.background
+{
+    background-color: rgb(218, 217, 195);
+}
+#About_section h2
+{ 
+    margin-left: 200px;
+
+}
+#About_section
+{ 
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;   
+}
+
+#About_section p
+{
+  margin-left: 200px;
+  margin-top: 10px;
+   
+}
+#About_section img
+{
+    border:3px solid black;
+}
+
+#Project_section h1{
+    margin-top: 80px;
+    border-top:1px solid black;
+    
+}
+#Project_section 
+{
+    
+    font-style: normal;
+    font-weight: bold;
+
+}
+
+#Education_section h1
+{
+    margin-top: 2px;
+   border-top: 1px solid black;
+}
+
+#Education_section
+{
+    font-style: normal;
+    font-weight: bold;
+}
+#languages h1
+{
+    border-top: 1px solid black;
+}
+#languages i
+{
+    color:rgb(42, 48, 29);
+}
