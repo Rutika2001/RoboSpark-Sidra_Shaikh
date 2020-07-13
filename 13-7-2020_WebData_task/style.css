@@ -1,0 +1,63 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-image: url("Images/bg3.jpg");
+    background-size: cover;
+}
+
+.student
+{
+    
+    position: absolute;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    color: white;
+}
+.student h1
+{
+    text-align: center;
+    padding: 2px;
+    border-bottom: 3px solid white;
+}
+.Input_form i
+{
+    font-size: 20px;
+}
+.Input_form
+{
+    border-bottom: 1px solid;
+    width: 100%;
+    font-size: 70px;
+    text-align: center;
+    
+    
+}
+.Input_form input
+{
+    background: none;
+    border:none;
+    outline: none;
+    font-size: 20px;
+    color: white;
+}
+.submit_btn
+{
+    width: 50%;
+    background: none;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 50px;
+    margin-top: 25px;
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.submit_btn:hover
+{
+    color: rgb(93, 168, 31);
+    background-color: rgb(33, 150, 18);
+    transition: 0.5s;
+}
